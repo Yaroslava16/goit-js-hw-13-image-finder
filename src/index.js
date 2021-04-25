@@ -19,6 +19,10 @@ function onSearchClick(e) {
 
   pixabayService.query = e.currentTarget.elements.query.value;
 
+  if (pixabayService.query === '') {
+    return alert('Enter the word');
+  }
+
   pixabayService.resetPage();
   clearHits();
   pixabayService.fetchHits().then(hits => {
