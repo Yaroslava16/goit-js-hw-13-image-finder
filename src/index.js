@@ -19,7 +19,7 @@ function onSearchClick(e) {
 
   pixabayService.query = e.currentTarget.elements.query.value;
 
-  if (pixabayService.query === '') {
+  if (pixabayService.query === '' || !pixabayService.query.trim()) {
     return alert('Enter the word');
   }
 
