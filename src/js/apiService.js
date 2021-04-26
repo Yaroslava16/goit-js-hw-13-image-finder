@@ -8,10 +8,14 @@ export default class PixabayService {
   }
 
   async fetchHits() {
-    const dataUrl = `/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`;
-    const response = await fetch(BASE_URL + dataUrl);
-    const newResponse = await response.json();
-    return newResponse.hits;
+    try {
+      const dataUrl = `/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`;
+      const response = await fetch(BASE_URL + dataUrl);
+      const newResponse = await response.json();
+      return newResponse.hits;
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   incrementPage() {
